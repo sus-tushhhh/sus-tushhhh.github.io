@@ -12,6 +12,7 @@ body {
     margin: auto;
     overflow: hidden;
 }
+
 header {
     background: #50b3a2;
     color: #ffffff;
@@ -52,13 +53,13 @@ header a:hover {
     color: #ffffff;
     font-weight: bold;
 }
-.privacy-policy {
+.content-section {
     padding: 15px;
     background: #ffffff;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.privacy-policy h2, .privacy-policy h3 {
+.content-section h2, .content-section h3 {
     color: #000000;
 }
 footer {
