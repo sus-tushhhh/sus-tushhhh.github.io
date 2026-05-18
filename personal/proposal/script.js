@@ -16,6 +16,14 @@ function isMobile() {
     }
 }
 
+function mobilePopup() {
+    if (isMobile()) {
+        alert(
+            "This website is designed for PCs and tablets, and may not function properly on smartphones.",
+        );
+    }
+}
+
 function teleport_random() {
     var b = document.getElementById("no");
     if (b.innerHTML.includes("I don't") || b.innerHTML == list[0]) {
