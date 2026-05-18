@@ -22,7 +22,7 @@ function teleport_random() {
         b.innerHTML = list[0];
     } else {
         b.style.position = "fixed";
-        b.style.bottom = `${randint(0, 60)}%`;
+        b.style.bottom = `${randint(5, 60)}%`;
         if (isMobile()) {
             b.style.left = `${randint(10, 20)}%`;
         } else {
