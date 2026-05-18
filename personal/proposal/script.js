@@ -4,14 +4,30 @@ function randint(min, max) {
 
 let list = ["Are you sure❓", "Am I not good for u❓"];
 
+function isMobile() {
+    if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent,
+        )
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function teleport_random() {
     var b = document.getElementById("no");
     if (b.innerHTML.includes("I don't") || b.innerHTML == list[0]) {
         b.innerHTML = list[0];
     } else {
-        b.style.position = "absolute";
+        b.style.position = "fixed";
         b.style.bottom = `${randint(0, 60)}%`;
-        b.style.left = `${randint(20, 70)}%`;
+        if (isMobile()) {
+            b.style.left = `${randint(10, 20)}%`;
+        } else {
+            b.style.left = `${randint(20, 70)}%`;
+        }
     }
 }
 
@@ -29,18 +45,6 @@ function no_click() {
     } else {
         b.innerHTML = list[1];
         teleport_random();
-    }
-}
-
-function isMobile() {
-    if (
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-            navigator.userAgent,
-        )
-    ) {
-        return true;
-    } else {
-        return false;
     }
 }
 
