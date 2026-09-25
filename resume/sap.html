@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tushant - Resume</title>
+        <style>
+            :root {
+                --bg-color: #f5f5f5;
+                --container-bg: #ffffff;
+
+                --sidebar-bg: #2f2f2f;
+                --sidebar-text: #f5f5f5;
+                --sidebar-muted: #b8b8b8;
+
+                --main-text: #333333;
+                --main-muted: #666666;
+
+                --border-color: #d6d6d6;
+                --sidebar-border: #4a4a4a;
+
+                --pill-bg: #eeeeee;
+                --pill-text: #444444;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family:
+                    "Inter",
+                    "Segoe UI",
+                    system-ui,
+                    -apple-system,
+                    sans-serif;
+                background-color: var(--bg-color);
+                color: var(--main-text);
+                line-height: 1.6;
+                padding: 40px 20px;
+            }
+
+            .resume-container {
+                max-width: 1000px;
+                margin: 0 auto;
+                background-color: var(--container-bg);
+                display: grid;
+                grid-template-columns: 320px 1fr;
+                box-shadow:
+                    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+                    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            /* Sidebar Styling */
+            .sidebar {
+                background-color: var(--sidebar-bg);
+                color: var(--sidebar-text);
+                padding: 40px 25px;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .profile-container {
+                text-align: center;
+            }
+
+            .profile-img {
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid var(--sidebar-border);
+                margin-bottom: 20px;
+            }
+
+            .profile-name {
+                font-size: 3rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                margin-bottom: 5px;
+            }
+
+            .profile-title {
+                font-size: 0.75rem;
+                color: var(--sidebar-muted);
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+            }
+
+            .sidebar-section {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .sidebar-title {
+                font-size: 0.95rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+                color: var(--sidebar-text);
+                border-bottom: 2px solid var(--sidebar-border);
+                padding-bottom: 6px;
+            }
+
+            .contact-list,
+            .education-list,
+            .skills-list {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                font-size: 0.88rem;
+            }
+
+            .contact-item {
+                color: var(--sidebar-muted);
+                word-break: break-all;
+            }
+
+            .contact-item a {
+                color: var(--sidebar-text);
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+
+            .contact-item a:hover {
+                color: #ffffff;
+                text-decoration: underline;
+            }
+
+            .edu-item {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .edu-degree {
+                font-weight: 600;
+                color: var(--sidebar-text);
+            }
+
+            .edu-institution {
+                color: var(--sidebar-muted);
+                font-size: 0.82rem;
+            }
+
+            .edu-year {
+                color: var(--sidebar-muted);
+                font-size: 0.8rem;
+                font-style: italic;
+            }
+
+            .skills-group {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                font-size: 0.85rem;
+            }
+
+            .skills-category-title {
+                color: var(--sidebar-muted);
+                font-weight: 500;
+                font-size: 0.8rem;
+            }
+
+            .skill-badges {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .sidebar-badge {
+                background-color: var(--sidebar-border);
+                color: var(--sidebar-text);
+                padding: 3px 8px;
+                border-radius: 4px;
+                font-size: 0.78rem;
+            }
+
+            /* Main Content Styling */
+            .main-content {
+                padding: 45px 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 35px;
+            }
+
+            .main-section {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-title {
+                font-size: 1.1rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--main-text);
+                border-bottom: 2px solid var(--border-color);
+                padding-bottom: 8px;
+            }
+
+            .summary-text {
+                font-size: 0.95rem;
+                color: var(--main-muted);
+                line-height: 1.7;
+            }
+
+            .projects-container {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .project-card {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .project-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .project-title {
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: var(--main-text);
+            }
+
+            .project-link {
+                font-size: 0.85rem;
+                color: var(--main-muted);
+                text-decoration: none;
+            }
+
+            .project-link:hover {
+                text-decoration: underline;
+                color: var(--main-text);
+            }
+
+            .project-tech {
+                font-size: 0.82rem;
+                font-weight: 500;
+                color: #4b5563;
+                background-color: var(--pill-bg);
+                padding: 4px 10px;
+                border-radius: 4px;
+                display: inline-block;
+                width: fit-content;
+            }
+
+            .project-bullets {
+                list-style-type: disc;
+                padding-left: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                color: var(--main-muted);
+                font-size: 0.9rem;
+            }
+
+            .strengths-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                list-style: none;
+            }
+
+            .strength-badge {
+                background-color: var(--pill-bg);
+                color: var(--pill-text);
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 500;
+                border: 1px solid var(--border-color);
+            }
+
+            /* Print Optimization */
+            @media print {
+                body {
+                    background-color: #ffffff;
+                    padding: 0;
+                }
+                .resume-container {
+                    box-shadow: none;
+                    border-radius: 0;
+                    width: 100%;
+                }
+            }
+
+            /* Responsive View */
+            @media (max-width: 768px) {
+                .resume-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="resume-container">
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <div class="profile-container">
+                    <h1 class="profile-name">Tushant</h1>
+                    <div class="profile-title">Software Developer | BCA Student</div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Contact</h2>
+                    <ul class="contact-list">
+                        <li class="contact-item">Delhi, India</li>
+                        <li class="contact-item">Phone: <a>+91-9319843461</a></li>
+                        <li class="contact-item">
+                            Email:
+                            <a href="mailto:tushant0430@gmail.com">tushant0430@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            GitHub:
+                            <a href="https://github.com/sus-tushhhh" target="_blank"
+                                >github.com/sus-tushhhh</a
+                            >
+                        </li>
+                        <li class="contact-item">
+                            LinkedIn:
+                            <a href="https://www.linkedin.com/in/sus-tushhhh/" target="_blank"
+                                >linkedin.com/in/sus-tushhhh</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Education</h2>
+
+                    <div class="edu-item">
+                        <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+                        <div class="edu-institution">
+                            Institute of Innovation in Technology and Management, GGSIPU
+                        </div>
+                        <div class="edu-year">2024 - Present <b>(CGPA: 9.2)</b></div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-degree">Senior Secondary & Secondary Education</div>
+                        <div class="edu-institution">S. D. Public School, Pitampura, Delhi</div>
+                        <div class="edu-year">
+                            Class XII: 2024 <b>(72%)</b>
+                            <br />
+                            Class X: 2022 <b>(73.17%)</b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Technical Skills</h2>
+                    <div class="skills-group">
+                        <span class="skills-category-title">Programming</span>
+                        <div class="skill-badges">
+                            <span class="sidebar-badge">Python</span>
+                            <span class="sidebar-badge">Java</span>
+                            <span class="sidebar-badge">C</span>
+                        </div>
+                    </div>
+                    <div class="skills-group">
+                        <span class="skills-category-title">Web Development</span>
+                        <div class="skill-badges">
+                            <span class="sidebar-badge">HTML</span>
+                            <span class="sidebar-badge">CSS</span>
+                            <span class="sidebar-badge">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="skills-group">
+                        <span class="skills-category-title">Database</span>
+                        <div class="skill-badges">
+                            <span class="sidebar-badge">MySQL</span>
+                            <span class="sidebar-badge">SQLite</span>
+                        </div>
+                    </div>
+                    <div class="skills-group">
+                        <span class="skills-category-title">AI & Development</span>
+                        <div class="skill-badges">
+                            <span class="sidebar-badge">LangChain</span>
+                            <span class="sidebar-badge">Gemini API</span>
+                            <span class="sidebar-badge">Streamlit</span>
+                        </div>
+                    </div>
+                    <div class="skills-group">
+                        <span class="skills-category-title">Tools</span>
+                        <div class="skill-badges">
+                            <span class="sidebar-badge">Git</span>
+                            <span class="sidebar-badge">GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <!-- Summary Section -->
+                <section class="main-section">
+                    <h2 class="main-title">Profile</h2>
+                    <p class="summary-text">
+                        BCA student at GGSIPU with a strong foundation in programming. Experienced
+                        in building practical applications using Python, Streamlit, APIs, databases,
+                        and AI/LLM technologies. Interested in software development and
+                        backend-oriented roles, with a focus on problem-solving and building
+                        real-world applications.
+                    </p>
+                </section>
+
+                <!-- Projects Section -->
+                <section class="main-section">
+                    <h2 class="main-title">Projects</h2>
+
+                    <div class="projects-container">
+                        <!-- Project 1 -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-title">
+                                    SQL-Wizard — AI-Powered Natural Language to SQL Generator
+                                </span>
+                                <a
+                                    href="https://github.com/sus-tushhhh/SQL-Wizard"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+                                    GitHub Repo
+                                </a>
+                            </div>
+
+                            <div class="project-tech">
+                                Python | LangChain | Gemini API | SQLite | Streamlit
+                            </div>
+
+                            <ul class="project-bullets">
+                                <li>
+                                    Built an AI application that converts natural-language prompts
+                                    into SQL queries using LangChain and Gemini API.
+                                </li>
+                                <li>
+                                    Implemented database upload, query execution, data viewing,
+                                    commit, and rollback functionality.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-title">
+                                    Data Lens — Data Analysis & Visualization Tool
+                                </span>
+                                <a
+                                    href="https://github.com/sus-tushhhh/Data-Lens"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+                                    GitHub Repo
+                                </a>
+                            </div>
+
+                            <div class="project-tech">Python | Data Analysis | Visualization</div>
+
+                            <ul class="project-bullets">
+                                <li>
+                                    Developed a Python-based tool for dataset analysis and
+                                    interactive visualization.
+                                </li>
+                                <li>Collaborated on development as a two-person project.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-title">
+                                    Weather Lens — Weather Forecasting Application
+                                </span>
+                                <a
+                                    href="https://github.com/sus-tushhhh/Weather-Lens"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+                                    GitHub Repo
+                                </a>
+                            </div>
+
+                            <div class="project-tech">Python | Streamlit | Weather API</div>
+
+                            <ul class="project-bullets">
+                                <li>
+                                    Built a Streamlit weather application using real-time API data
+                                    and forecast visualization.
+                                </li>
+                                <li>
+                                    Integrated API-based weather information into an interactive
+                                    interface.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-title">
+                                    Anti-Rejection — Interactive Web Application
+                                </span>
+                                <a
+                                    href="https://github.com/sus-tushhhh/Anti-Rejection"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+                                    GitHub Repo
+                                </a>
+                            </div>
+
+                            <div class="project-tech">HTML | CSS | JavaScript</div>
+
+                            <ul class="project-bullets">
+                                <li>
+                                    Developed an interactive website where the "No" button
+                                    dynamically changes position when hovered or clicked.
+                                </li>
+                                <li>Designed the interaction for desktop and tablet users.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Core Strengths Section -->
+                <section class="main-section">
+                    <h2 class="main-title">Core Strengths</h2>
+                    <ul class="strengths-list">
+                        <li class="strength-badge">Problem Solving</li>
+                        <li class="strength-badge">Teamwork & Collaboration</li>
+                        <li class="strength-badge">Communication</li>
+                        <li class="strength-badge">Adaptability</li>
+                        <li class="strength-badge">Continuous Learning</li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
