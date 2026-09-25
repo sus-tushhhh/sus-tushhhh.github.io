@@ -9,18 +9,22 @@
                 --bg-color: #f5f5f5;
                 --container-bg: #ffffff;
 
-                --sidebar-bg: #2f2f2f;
-                --sidebar-text: #f5f5f5;
-                --sidebar-muted: #b8b8b8;
+                /* Light monochrome sidebar */
+                --sidebar-bg: #eeeeee;
+                --sidebar-text: #2f2f2f;
+                --sidebar-muted: #666666;
 
-                --main-text: #333333;
+                /* Main content */
+                --main-text: #2f2f2f;
                 --main-muted: #666666;
 
-                --border-color: #d6d6d6;
-                --sidebar-border: #4a4a4a;
+                /* Borders / separators */
+                --border-color: #d2d2d2;
+                --sidebar-border: #b8b8b8;
 
-                --pill-bg: #eeeeee;
-                --pill-text: #444444;
+                /* Tags / pills */
+                --pill-bg: #e4e4e4;
+                --pill-text: #3f3f3f;
             }
 
             * {
@@ -36,7 +40,6 @@
                     system-ui,
                     -apple-system,
                     sans-serif;
-                background-color: var(--bg-color);
                 color: var(--main-text);
                 line-height: 1.6;
                 padding: 40px 20px;
@@ -47,6 +50,7 @@
                 margin: 0 auto;
                 background-color: var(--container-bg);
                 display: grid;
+                border: 1px solid black;
                 grid-template-columns: 320px 1fr;
                 box-shadow:
                     0 10px 25px -5px rgba(0, 0, 0, 0.1),
@@ -430,15 +434,8 @@
                         <div class="project-card">
                             <div class="project-header">
                                 <span class="project-title">
-                                    SQL-Wizard — AI-Powered Natural Language to SQL Generator
+                                    SQL Wizard — AI-Powered Natural Language to SQL Generator
                                 </span>
-                                <a
-                                    href="https://github.com/sus-tushhhh/SQL-Wizard"
-                                    target="_blank"
-                                    class="project-link"
-                                >
-                                    GitHub Repo
-                                </a>
                             </div>
 
                             <div class="project-tech">
@@ -461,15 +458,30 @@
                         <div class="project-card">
                             <div class="project-header">
                                 <span class="project-title">
+                                    Poke-Helper — Discord Pokémon Identification Bot
+                                </span>
+                            </div>
+
+                            <div class="project-tech">Python | discord.py | Image Hashing</div>
+
+                            <ul class="project-bullets">
+                                <li>
+                                    Built a Discord bot using discord.py that identifies Pokémon by
+                                    matching image hashes against a reference image dataset.
+                                </li>
+                                <li>
+                                    Implemented image hashing and comparison to identify Pokémon
+                                    from user-provided images.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-title">
                                     Data Lens — Data Analysis & Visualization Tool
                                 </span>
-                                <a
-                                    href="https://github.com/sus-tushhhh/Data-Lens"
-                                    target="_blank"
-                                    class="project-link"
-                                >
-                                    GitHub Repo
-                                </a>
                             </div>
 
                             <div class="project-tech">Python | Data Analysis | Visualization</div>
@@ -483,19 +495,12 @@
                             </ul>
                         </div>
 
-                        <!-- Project 3 -->
+                        <!-- Project 4 -->
                         <div class="project-card">
                             <div class="project-header">
                                 <span class="project-title">
                                     Weather Lens — Weather Forecasting Application
                                 </span>
-                                <a
-                                    href="https://github.com/sus-tushhhh/Weather-Lens"
-                                    target="_blank"
-                                    class="project-link"
-                                >
-                                    GitHub Repo
-                                </a>
                             </div>
 
                             <div class="project-tech">Python | Streamlit | Weather API</div>
@@ -512,19 +517,12 @@
                             </ul>
                         </div>
 
-                        <!-- Project 4 -->
+                        <!-- Project 5 -->
                         <div class="project-card">
                             <div class="project-header">
                                 <span class="project-title">
-                                    Anti-Rejection — Interactive Web Application
+                                    Anti Rejection — Interactive Web Application
                                 </span>
-                                <a
-                                    href="https://github.com/sus-tushhhh/Anti-Rejection"
-                                    target="_blank"
-                                    class="project-link"
-                                >
-                                    GitHub Repo
-                                </a>
                             </div>
 
                             <div class="project-tech">HTML | CSS | JavaScript</div>
