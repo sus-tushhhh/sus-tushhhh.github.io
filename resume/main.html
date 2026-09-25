@@ -14,9 +14,28 @@
                 font-family: cursive;
                 height: 100vh;
             }
+
+            button {
+                width: 7.5cm;
+                height: 1.2cm;
+                text-align: center;
+                font-family: "Comic Sans MS", "Comic Sans";
+                font-size: 25px;
+                background-color: rgb(147, 232, 255);
+                border: 2px solid black;
+                border-radius: 10px;
+                box-shadow: 5px 5px 5px;
+                font-size: clamp(1rem, 3vw, 1.5rem);
+                color: rgb(47, 0, 255);
+            }
+            button:active {
+                box-shadow: 2px 2px 2px;
+                transform: translate(2px, 2px);
+                filter: brightness(90%);
+            }
         </style>
     </head>
     <body>
-        <h1><a href="sap.html">SAP Resume</a></h1>
+        <button onclick="window.location.href = 'sap.html'">SAP Resume</button>
     </body>
 </html>
